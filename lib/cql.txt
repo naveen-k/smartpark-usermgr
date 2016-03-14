@@ -1,0 +1,77 @@
+CREATE KEYSPACE DEV WITH
+  REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+
+CREATE TYPE garage_rate (
+    type text,
+    rate int,
+    currency text
+  );
+
+CREATE TYPE garage_revenue (
+    amount float,
+    date timestamp
+  );
+
+CREATE TYPE garage_device (
+    id text,
+    type text,
+    online boolean,
+    image text,
+    stream text,
+    location map<text, text>
+  );
+
+
+CREATE TABLE garage (
+    id text PRIMARY KEY,
+    description text,
+    contact text,
+    online boolean,
+    image text,
+    address map<text, text>,
+    hours map<text, text>,
+    location map<text, float>,
+    rates list< frozen<garage_rate>>,
+    revenue list<frozen<garage_revenue>>,
+    devices list<frozen<garage_device>>
+  );
+
+
+
+INSERT INTO
+  garage(
+    id,
+    description,
+    contact,
+    online,
+    image,
+    address,
+    hours,
+    location,
+    rates,
+    revenue,
+    devices
+  )
+  VALUES (
+    '4',
+    'Verizon Garage',
+    '(800)555-1212',
+    true,
+    'http://cdn.thingspace.verizon.com/smartpark/01A.jpg',
+    {'street':'700 Hidden Ridge', 'city':'Irving', 'state':'TX', 'zip':'75098'},
+    {'from': 'MONDAY', 'to': 'FRIDAY', 'open': '12:00AM', 'closed': '11:59PM'},
+    {'latitude': 42.3594327, 'longitude': -71.0596411},
+    [{type: 'HOUR', rate:10, currency:'$'},
+     {type: 'DAILY', rate:20, currency:'$'},
+     {type: 'FULL', rate:25, currency:'$'}],
+    [{date:'2011-02-03', amount:10.25},
+     {date:'2015-12-01', amount:2000}],
+    [{id:'IRV-01-CAM-01B', type:'CAMERA', online:true,
+      image:'http://cdn.thingspace.verizon.com/smartpark/01B.jpg',
+      stream:'http://files.thingspace.verizon.com/smartpark/700HiddenRidge.mov',
+      location:{'x': '0', 'y':'0'}},
+     {id:'IRV-01-CAM-01C', type:'CAMERA', online:true,
+      image:'http://cdn.thingspace.verizon.com/smartpark/01B.jpg',
+      stream:'http://files.thingspace.verizon.com/smartpark/700HiddenRidge.mov',
+      location:{'x': '0', 'y':'0'}}]
+  );
