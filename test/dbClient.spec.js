@@ -20,7 +20,7 @@ describe('Database Connection', function() {
     this.slow(1000);
     db.connect(config.db, function(err, db) {
       (err === null).should.be.true;
-      db.instance.Garage.should.exist;
+      db.instance.User.should.exist;
       done();
     });
   });

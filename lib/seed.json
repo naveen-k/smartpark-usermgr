@@ -1,100 +1,30 @@
 [
   {
-  "description": "Irving 700",
-  "contact": "(000)000-0000",
-  "online": false,
-  "image": "string",
-  "address": {
-    "city": "Irving",
+    "first_name": "George",
+    "last_name": "Clernon",
+    "contact": "(781) 466-4308",
+    "email": "george.clernon@verizon.com",
+    "avatar": "http://abc.com/smartpark/user/ghi.jpg",
+    "address": {
+      "street": "28 State Street",
+      "city": "Irving",
       "state": "TX",
-      "street": "700 Hidden Ridge",
-      "zip": "75098"
-  },
-  "hours": {
-    "from": "SUNDAY",
-    "to": "SUNDAY",
-    "open": "11:59PM",
-    "closed": "11:00AM"
-  },
-  "rates": [
-    {
-      "type": "HOUR",
-      "rate": 0,
-      "currency": "$"
-    }
-  ],
-  "location": {
-    "latitude": 0,
-    "longitude": 0
-  },
-  "capacity": {
-    "total": 0,
-    "reserved": 0,
-    "occupied": 0
-  },
-  "revenue": [
-    {
-      "date": "2016-03-11",
-      "amount": 0
-    }
-  ],
-  "devices": [
-    {
-      "id": "IRV-01-CAM-01C",
-        "type": "CAMERA",
-        "online": false,
-        "image": "http://cdn.thingspace.verizon.com/smartpark/01B.jpg",
-        "stream": "http://files.thingspace.verizon.com/smartpark/700HiddenRidge.mov"
-    }
-  ]
-},
- {
-  "description": "Irving 600",
-  "contact": "(000)000-0000",
-  "online": false,
-  "image": "string",
-  "address": {
-    "city": "Irving",
-      "state": "TX",
-      "street": "600 Hidden Ridge",
       "zip": "75038"
-  },
-  "hours": {
-    "from": "SUNDAY",
-    "to": "SUNDAY",
-    "open": "11:59PM",
-    "closed": "11:00AM"
-  },
-  "rates": [
-    {
-      "type": "HOUR",
-      "rate": 0,
-      "currency": "$"
-    }
-  ],
-  "location": {
-    "latitude": 0,
-    "longitude": 0
-  },
-  "capacity": {
-    "total": 0,
-    "reserved": 0,
-    "occupied": 0
-  },
-  "revenue": [
-    {
-      "date": "2016-03-11",
-      "amount": 0
-    }
-  ],
-  "devices": [
-    {
-      "id": "IRV-01-CAM-01C",
-        "type": "CAMERA",
-        "online": false,
-        "image": "http://cdn.thingspace.verizon.com/smartpark/01B.jpg",
-        "stream": "http://files.thingspace.verizon.com/smartpark/700HiddenRidge.mov"
-    }
-  ]
-}
+    },
+    "cars": [
+      {
+        "make": "Audi",
+        "model": "A6",
+        "licence": "TX-121"
+      }
+    ],
+    "favorite_garages": [
+      {
+        "id": "aa5f06c8-3400-4416-bd57-d3696ff2f9e7"
+      },
+      {
+        "id": "aa5f06c8-3400-4416-bd57-d3696ff2f9e7"
+      }
+    ]
+  }
 ]

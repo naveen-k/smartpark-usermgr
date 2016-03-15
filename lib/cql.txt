@@ -1,77 +1,51 @@
 CREATE KEYSPACE DEV WITH
   REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
 
-CREATE TYPE garage_rate (
-    type text,
-    rate int,
-    currency text
+CREATE TYPE user_car (
+    make text,
+    model text,
+    licence text
   );
 
-CREATE TYPE garage_revenue (
-    amount float,
-    date timestamp
+CREATE TYPE user_favorite_garage (
+    id text
   );
 
-CREATE TYPE garage_device (
-    id text,
-    type text,
-    online boolean,
-    image text,
-    stream text,
-    location map<text, text>
-  );
-
-
-CREATE TABLE garage (
+CREATE TABLE user (
     id text PRIMARY KEY,
-    description text,
+    first_name text,
+    last_name text,
     contact text,
-    online boolean,
-    image text,
+    email text,
+    join_date timestamp,
+    avatar text,
     address map<text, text>,
-    hours map<text, text>,
-    location map<text, float>,
-    rates list< frozen<garage_rate>>,
-    revenue list<frozen<garage_revenue>>,
-    devices list<frozen<garage_device>>
+    cars list< frozen<user_car>>,
+    favorite_garages list<frozen<user_favorite_garage>>
   );
-
-
 
 INSERT INTO
-  garage(
+  user(
     id,
-    description,
+    first_name,
+    last_name,
     contact,
-    online,
-    image,
+    email,
+    avatar,
+    join_date,
     address,
-    hours,
-    location,
-    rates,
-    revenue,
-    devices
+    cars,
+    favorite_garages
   )
   VALUES (
-    '4',
-    'Verizon Garage',
-    '(800)555-1212',
-    true,
-    'http://cdn.thingspace.verizon.com/smartpark/01A.jpg',
+   '106',
+    'Naveen',
+    'Kumar',
+    '(781) 466-4308',
+    'george.clernon@verizon.com',
+    'http://abc.com/smartpark/user/ghi.jpg',
+    '2015-03-14',
     {'street':'700 Hidden Ridge', 'city':'Irving', 'state':'TX', 'zip':'75098'},
-    {'from': 'MONDAY', 'to': 'FRIDAY', 'open': '12:00AM', 'closed': '11:59PM'},
-    {'latitude': 42.3594327, 'longitude': -71.0596411},
-    [{type: 'HOUR', rate:10, currency:'$'},
-     {type: 'DAILY', rate:20, currency:'$'},
-     {type: 'FULL', rate:25, currency:'$'}],
-    [{date:'2011-02-03', amount:10.25},
-     {date:'2015-12-01', amount:2000}],
-    [{id:'IRV-01-CAM-01B', type:'CAMERA', online:true,
-      image:'http://cdn.thingspace.verizon.com/smartpark/01B.jpg',
-      stream:'http://files.thingspace.verizon.com/smartpark/700HiddenRidge.mov',
-      location:{'x': '0', 'y':'0'}},
-     {id:'IRV-01-CAM-01C', type:'CAMERA', online:true,
-      image:'http://cdn.thingspace.verizon.com/smartpark/01B.jpg',
-      stream:'http://files.thingspace.verizon.com/smartpark/700HiddenRidge.mov',
-      location:{'x': '0', 'y':'0'}}]
-  );
+    [{make:'Audi',model:'A6',licence:'TX-121'}],
+    [{id:'aa5f06c8-3400-4416-bd57-d3696ff2f9e7'},
+     {id:'aa5f06c8-3400-4416-bd57-d3696ff2f9e7'}]);

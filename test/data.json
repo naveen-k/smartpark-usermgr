@@ -1,105 +1,30 @@
 {
-	    "description": "Verizon 700 West",
-	    "contact": "(800)008-0900",
-	    "online": true,
-	    "image" : "http://cdn.thingspace.verizon.com/smartpark/01A.jpg",
-	    "address": {
-	      "street": "700 Hidden Ridge",
-	      "city": "Irving",
-	      "state": "TX",
-	      "zip": "75098"
-	    },
-	    "hours": {
-	      "from": "MONDAY",
-	      "to": "FRIDAY",
-	      "open": "12:00AM",
-	      "closed": "11:59PM"
-	    },
-	    "reservationTypes": [
-	      {
-	        "type": "HOUR",
-	        "rate": 10,
-	        "currency": "$"
-	      },
-	      {
-	        "type": "HALF",
-	        "rate": 20,
-	        "currency": "$"
-	      },
-	      {
-	        "type": "FULL",
-	        "rate": 25,
-	        "currency": "$"
-	      }
-	    ],
-	    "levels": [
-
-	    ],
-	    "location": {
-	      "latitude": 42.3594327,
-	      "longitude": -71.0596411
-	    },
-	    "revenue": [
-	      {
-	        "date": "2015-12-01",
-	        "amount": 2000
-	      }
-	    ],
-	    "devices": [
-	      {
-	        "id": "IRV-01-CAM-01B",
-	        "type": "CAMERA",
-	        "online": true,
-	        "image": "http://cdn.thingspace.verizon.com/smartpark/01B.jpg",
-	        "stream": "http:\/\/files.thingspace.verizon.com\/smartpark\/700HiddenRidge.mov",
-	        "location": {
-	          "x": 0,
-	          "y": 0
-	        }
-	      },
-	      {
-	        "id": "IRV-01-CAM-01C",
-	        "type": "CAMERA",
-	        "online": true,
-	        "image": "http://cdn.thingspace.verizon.com/smartpark/01C.jpg",
-	        "stream": "http:\/\/files.thingspace.verizon.com\/smartpark\/700HiddenRidge.mov",
-	        "location": {
-	          "x": 0,
-	          "y": 0
-	        }
-	      },
-	      {
-	        "id": "IRV-01-CAM-01D",
-	        "type": "CAMERA",
-	        "online": true,
-	        "image": "http://cdn.thingspace.verizon.com/smartpark/01D.jpg",
-	        "stream": "http:\/\/files.thingspace.verizon.com\/smartpark\/700HiddenRidge.mov",
-	        "location": {
-	          "x": 0,
-	          "y": 0
-	        }
-	      },
-	      {
-	        "id": "IRV-01-CAM-01E",
-	        "type": "CAMERA",
-	        "online": true,
-	        "image": "http://cdn.thingspace.verizon.com/smartpark/01E.jpg",
-	        "stream": "http:\/\/files.thingspace.verizon.com\/smartpark\/700HiddenRidge.mov",
-	        "location": {
-	          "x": 0,
-	          "y": 0
-	        }
-	      },
-	      {
-	        "id": "prx00012",
-	        "type": "PROXIMITY",
-	        "online": true,
-	        "image": " ",
-	        "stream": " ",
-	        "location": {
-	          "x": 0,
-	          "y": 0
-	        }
-	      }
-	    ]
-	  }
+    "id": "aa5f06c8-3400-4416-bd57-d3696ff2f9e7",
+    "first_name": "George",
+    "last_name": "Clernon",
+    "contact": "(781) 466-4308",
+    "join_date": "2016-03-15",
+    "email": "george.clernon@verizon.com",
+    "avatar": "http://abc.com/smartpark/user/ghi.jpg",
+    "address": {
+      "street": "28 State Street",
+      "city": "Irving",
+      "state": "TX",
+      "zip": "75038"
+    },
+    "cars": [
+      {
+        "make": "Audi",
+        "model": "A6",
+        "licence": "TX-121"
+      }
+    ],
+    "favorite_garages": [
+      {
+        "id": "aa5f06c8-3400-4416-bd57-d3696ff2f9e7"
+      },
+      {
+        "id": "aa5f06c8-3400-4416-bd57-d3696ff2f9e7"
+      }
+    ]
+  }

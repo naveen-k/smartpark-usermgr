@@ -14,12 +14,12 @@ const io = require('socket.io')();
 const server = new Hapi.Server();
 
 server.connection({
-  port: process.env.API_PORT || 7002
+  port: process.env.API_PORT || 7003
 });
 
 const swaggerOptions = {
   info: {
-    'title': 'SmartPark Garage Manager',
+    'title': 'SmartPark User Manager',
     'version': Pack.version,
   },
   documentationPath: '/api/'
