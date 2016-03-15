@@ -55,8 +55,6 @@ module.exports.routes = [
     tags: ['api'],
     validate: {
       payload:  {
-
-        id: Joi.string().guid(),
         first_name: Joi.string(),
         last_name: Joi.string(),
         contact: Joi.string().regex(/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/).allow(null),
@@ -95,6 +93,87 @@ module.exports.routes = [
             user: result.data
           });
         }
+      }
+    });
+  }
+},{
+  method: 'DELETE',
+  path: '/api/user/{id?}',
+  config: {
+    description: 'Delete a user',
+    notes: 'Remove the user',
+    tags: ['api'],
+    validate: {
+      params: {
+        id: Joi.string().required()
+      }
+    },
+    plugins: {
+      'hapi-io': 'delete-user'
+    }
+  },
+  handler: function (request, reply) {
+    let service = new Service(config);
+    let params = {
+      id: request.params.id
+    }
+    service.delete(params, function(err, result) {
+      if(err) {
+        reply({ statusCode: 500, message:err });
+      }
+      else {
+        reply({
+          statusCode: 200,
+          success: result.success,
+          message: result.message,
+          user: result.data
+        });
+      }
+    });
+  }
+},{
+  method: 'PUT',
+  path: '/api/user/{id?}',
+  config: {
+    description: 'Update a User',
+    notes: 'Modify the User',
+    tags: ['api'],
+    validate: {
+      params: {
+        id: Joi.string().required()
+      },
+      payload:  {
+        first_name: Joi.string(),
+        last_name: Joi.string(),
+        contact: Joi.string().regex(/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/).allow(null),
+        email: Joi.string(),
+        join_date: Joi.date().format('YYYY-MM-DD').raw(),
+        avatar: Joi.string().default(null),
+        address: Joi.object().keys(Schema.Address),
+        cars: Joi.array().optional().items(Joi.object().keys(Schema.Car)).default(null),
+        favorite_garages: Joi.array().optional().items(Joi.object().keys(Schema.FavoriteGarage)).default(null)
+      }
+    },
+    plugins: {
+      'hapi-io': 'update-User'
+    }
+  },
+  handler: function (request, reply) {
+    let service = new Service(config);
+    var data = {};
+    data=request.payload;
+    data.id=request.params.id;
+    service.update(data, function(err, result) {
+      if(err) {
+        reply({ statusCode: 500, message:err });
+      }
+      else {
+        reply({
+          statusCode: 200,
+          success: result.success,
+          message: result.message,
+          user: result.data
+        });
       }
     });
   }
